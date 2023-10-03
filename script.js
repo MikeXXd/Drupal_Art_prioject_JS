@@ -1,8 +1,9 @@
 import WaveSurfer from "https://unpkg.com/wavesurfer.js@7/dist/wavesurfer.esm.js";
 
 // preset-----------------------------------start--
-// ideal MIN_PX_PER_SEC for screen width: 1920px is 5
-const  MIN_PX_PER_SEC = 5;
+                            
+const  MIN_PX_PER_SEC = 5; // ideal MIN_PX_PER_SEC for screen width: 1920px is 5
+
 // preset-----------------------------------end--
 
 const zoomInBtn = document.getElementById("zoomInBtn");
@@ -11,13 +12,17 @@ const actualTime = document.getElementById("currentTime");
 const playBtn = document.getElementById("playBtn");
 const stopBtn = document.getElementById("stopBtn");
 const muteBtn = document.getElementById("muteBtn");
+const playing = document.getElementById("music");
+
+
 const wavesurfer = WaveSurfer.create({
   container: "#waveform",
   waveColor: "#A8DBA8",
   progressColor: "#3B8686",
   url: "./media/track.mp3",
   minPxPerSec: MIN_PX_PER_SEC,
-  cursorColor: "green",
+  cursorColor: "chartreuse",
+  cursorWidth: 2,
   dragToSeek: true,
 });
 
@@ -27,13 +32,19 @@ playBtn.onclick = () => {
   wavesurfer.playPause();
   if (playBtn.src.includes("play.png")) {
     playBtn.src = "./media/pause.png";
+    playing.classList.add("playing");
   } else {
     playBtn.src = "./media/play.png";
+    playing.classList.remove("playing")
+
   }
 };
 
+
+
 stopBtn.onclick = () => {
   wavesurfer.stop();
+  playing.classList.remove("playing");
   playBtn.src = "./media/play.png";
 };
 
