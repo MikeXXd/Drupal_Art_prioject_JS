@@ -19,28 +19,37 @@
   color: white;
   background: black;
   border-radius: 1rem;
-  border: .3rem solid #480000;
-  box-shadow: none; }
+  border: 0.3rem solid #480000;
+  box-shadow: none;
+}
 
-  
-  .music.playing {
+.music.playing {
+  box-shadow: 0px 0px 10px 5px chartreuse;
+  animation: pulse 2s infinite alternate;
+}
+
+@keyframes pulse {
+  0% {
     box-shadow: 0px 0px 10px 5px chartreuse;
-    animation: pulse 2s infinite alternate;
   }
-
-  @keyframes pulse {
-    0% {
-      box-shadow: 0px 0px 10px 5px chartreuse;
-    }
-    100% {
-      box-shadow: 0px 0px 50px 5px  chartreuse;
-    }
+  100% {
+    box-shadow: 0px 0px 50px 5px chartreuse;
   }
+}
 
-  .music h1 {
-    margin-bottom: 1rem;
-  }
+.music h1 {
+  margin-bottom: 1rem;
+}
 
+.music h1 > span {
+  font-size: smaller;
+  font-weight: lighter;
+}
+
+.music h1 > sub {
+  font-size: 0.5em;
+  font-weight: 100;
+}
 
 .controls {
   margin: 0 auto;
@@ -61,14 +70,14 @@
   transform: scale(1.2);
 }
 
-.controls > span {
+.time {
   margin: 0 1rem;
   font-size: 1.5rem;
 }
 
 .controls > button {
   margin: 0 1rem;
-  padding: .4rem 1rem;
+  padding: 0.4rem 1rem;
   font-size: 1rem;
   background: none;
   border: 1px solid;
@@ -77,20 +86,22 @@
   outline: none;
 }
 .controls button:first-of-type {
-  border-radius: 0.2rem 0 0 0.2rem;
+  border-radius: 0.3rem 0 0 0.3rem;
 }
 
 .controls button:last-of-type {
-  border-radius: 0 0.2rem 0.2rem 0;
+  border-radius: 0 0.3rem 0.3rem 0;
 }
 
 .controls button:hover {
   box-shadow: 0px 0px 10px 5px rgb(255, 170, 0);
 }
 
-.controls button:focus {
-  box-shadow: none
+.zoom-info {
+  border-top: 1px solid white;
+  border-bottom: 1px solid white;
+  margin: 0;
+  padding: 0.4rem 0;
+  font-size: 1rem;
+  color: white;
 }
-/* #waveform {
-  overflow: auto;
-} */
