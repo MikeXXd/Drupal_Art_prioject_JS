@@ -98,6 +98,7 @@ wavesurfer.on(
 
 wavesurfer.on("finish", () => {
   playBtn.src = "./media/play.png";
+  playing.classList.remove("playing");
   wavesurfer.stop();
 });
 
